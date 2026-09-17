@@ -1,0 +1,91 @@
+{
+  "weights": "C:\\Users\\VICTUS\\OneDrive\\Documents\\manus\\SIH_FINALE\\marine_debris_detector\\models\\yolo_sonar_best.pt",
+  "eval_set": "C:\\Users\\VICTUS\\OneDrive\\Documents\\manus\\SIH_FINALE\\marine_debris_detector\\data\\eval_heldout",
+  "iou_match": 0.4,
+  "recommended_yolo_conf_gate": 0.3,
+  "recommended_min_report_pct": 24.0,
+  "selection_criterion": "max image-level F2 (recall-weighted)",
+  "best": {
+    "gate": 0.3,
+    "precision": 0.9615,
+    "recall": 0.9854,
+    "f2": 0.9806,
+    "true_positives": 474,
+    "false_positives": 19,
+    "ground_truths": 481
+  },
+  "sweep": [
+    {
+      "gate": 0.05,
+      "precision": 0.6946,
+      "recall": 0.9979,
+      "f2": 0.9178,
+      "true_positives": 480,
+      "false_positives": 211,
+      "ground_truths": 481
+    },
+    {
+      "gate": 0.1,
+      "precision": 0.8202,
+      "recall": 0.9958,
+      "f2": 0.9549,
+      "true_positives": 479,
+      "false_positives": 105,
+      "ground_truths": 481
+    },
+    {
+      "gate": 0.15,
+      "precision": 0.8899,
+      "recall": 0.9917,
+      "f2": 0.9695,
+      "true_positives": 477,
+      "false_positives": 59,
+      "ground_truths": 481
+    },
+    {
+      "gate": 0.2,
+      "precision": 0.9241,
+      "recall": 0.9875,
+      "f2": 0.9742,
+      "true_positives": 475,
+      "false_positives": 39,
+      "ground_truths": 481
+    },
+    {
+      "gate": 0.25,
+      "precision": 0.9481,
+      "recall": 0.9875,
+      "f2": 0.9794,
+      "true_positives": 475,
+      "false_positives": 26,
+      "ground_truths": 481
+    },
+    {
+      "gate": 0.3,
+      "precision": 0.9615,
+      "recall": 0.9854,
+      "f2": 0.9806,
+      "true_positives": 474,
+      "false_positives": 19,
+      "ground_truths": 481
+    },
+    {
+      "gate": 0.4,
+      "precision": 0.9749,
+      "recall": 0.9709,
+      "f2": 0.9717,
+      "true_positives": 467,
+      "false_positives": 12,
+      "ground_truths": 481
+    },
+    {
+      "gate": 0.5,
+      "precision": 0.985,
+      "recall": 0.9584,
+      "f2": 0.9636,
+      "true_positives": 461,
+      "false_positives": 7,
+      "ground_truths": 481
+    }
+  ]
+}

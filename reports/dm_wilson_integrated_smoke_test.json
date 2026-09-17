@@ -1,0 +1,167 @@
+{
+  "image": "DM_Wilson_03.png",
+  "image_shape": [
+    5616,
+    1728,
+    3
+  ],
+  "total_detections": 127,
+  "shipwreck_detections": [
+    {
+      "class": "shipwreck",
+      "source": "yolo_shipwreck",
+      "box": [
+        1370,
+        3926,
+        1728,
+        4316
+      ],
+      "confidence_pct": 62.8,
+      "quality_score": 79.5,
+      "quality_tier": "medium",
+      "persistence_count": 1,
+      "persistence_score": 100.0,
+      "stability_score": 100.0,
+      "spatial_consistency_score": 100.0
+    },
+    {
+      "class": "shipwreck",
+      "source": "yolo_shipwreck",
+      "box": [
+        1435,
+        4110,
+        1728,
+        4552
+      ],
+      "confidence_pct": 62.6,
+      "quality_score": 79.4,
+      "quality_tier": "medium",
+      "persistence_count": 1,
+      "persistence_score": 100.0,
+      "stability_score": 100.0,
+      "spatial_consistency_score": 100.0
+    },
+    {
+      "class": "shipwreck",
+      "source": "yolo_shipwreck",
+      "box": [
+        1276,
+        4281,
+        1688,
+        4694
+      ],
+      "confidence_pct": 36.8,
+      "quality_score": 65.2,
+      "quality_tier": "medium",
+      "persistence_count": 1,
+      "persistence_score": 100.0,
+      "stability_score": 100.0,
+      "spatial_consistency_score": 100.0
+    },
+    {
+      "class": "shipwreck",
+      "source": "yolo_shipwreck",
+      "box": [
+        1430,
+        4823,
+        1728,
+        5279
+      ],
+      "confidence_pct": 28.1,
+      "quality_score": 60.5,
+      "quality_tier": "medium",
+      "persistence_count": 1,
+      "persistence_score": 100.0,
+      "stability_score": 100.0,
+      "spatial_consistency_score": 100.0
+    },
+    {
+      "class": "shipwreck",
+      "source": "yolo_shipwreck",
+      "box": [
+        1341,
+        4002,
+        1711,
+        4096
+      ],
+      "confidence_pct": 20.7,
+      "quality_score": 56.4,
+      "quality_tier": "medium",
+      "persistence_count": 1,
+      "persistence_score": 100.0,
+      "stability_score": 100.0,
+      "spatial_consistency_score": 100.0
+    },
+    {
+      "class": "shipwreck",
+      "source": "yolo_shipwreck",
+      "box": [
+        1138,
+        3908,
+        1533,
+        4356
+      ],
+      "confidence_pct": 12.8,
+      "quality_score": 52.0,
+      "quality_tier": "low",
+      "persistence_count": 1,
+      "persistence_score": 100.0,
+      "stability_score": 100.0,
+      "spatial_consistency_score": 100.0
+    },
+    {
+      "class": "shipwreck",
+      "source": "yolo_shipwreck",
+      "box": [
+        1448,
+        4494,
+        1727,
+        4864
+      ],
+      "confidence_pct": 10.7,
+      "quality_score": 50.9,
+      "quality_tier": "low",
+      "persistence_count": 1,
+      "persistence_score": 100.0,
+      "stability_score": 100.0,
+      "spatial_consistency_score": 100.0
+    },
+    {
+      "class": "shipwreck",
+      "source": "yolo_shipwreck",
+      "box": [
+        1279,
+        4002,
+        1446,
+        4096
+      ],
+      "confidence_pct": 9.2,
+      "quality_score": 50.1,
+      "quality_tier": "low",
+      "persistence_count": 1,
+      "persistence_score": 100.0,
+      "stability_score": 100.0,
+      "spatial_consistency_score": 100.0
+    }
+  ],
+  "shipwreck_candidate_detections": [
+    {
+      "class": "shipwreck_candidate",
+      "source": "structure_heuristic",
+      "box": [
+        1142,
+        3808,
+        1728,
+        4726
+      ],
+      "confidence_pct": 73.2,
+      "evidence_count": 40,
+      "quality_score": 85.3,
+      "quality_tier": "high",
+      "persistence_count": 1,
+      "persistence_score": 100.0,
+      "stability_score": 100.0,
+      "spatial_consistency_score": 100.0
+    }
+  ]
+}

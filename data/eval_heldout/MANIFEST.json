@@ -1,0 +1,7 @@
+{
+  "seed": 1234,
+  "hard_images": 150,
+  "background_images": 30,
+  "max_objects": 5,
+  "note": "never train on this set"
+}

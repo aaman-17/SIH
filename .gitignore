@@ -1,0 +1,21 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+.env
+.streamlit/secrets.toml
+
+# Large trained models and experiment runs
+models/
+runs/
+
+# Image datasets and generated patches
+data/**/images/
+data/**/labels/
+data/normal_patches/
+data/normal_patches_clahe/
+
+# Generated application outputs
+outputs/

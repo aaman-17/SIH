@@ -1,0 +1,7 @@
+path: C:/Users/VICTUS/OneDrive/Documents/manus/SIH_FINALE/marine_debris_detector/data/eval_heldout
+train: images/val
+val: images/val
+names:
+  0: debris_net
+  1: pipe_cylinder
+  2: shipwreck_debris

@@ -1,0 +1,7 @@
+path: data/synthetic_yolo
+train: images/train
+val: images/val
+names:
+  0: debris_net
+  1: pipe_cylinder
+  2: shipwreck_debris

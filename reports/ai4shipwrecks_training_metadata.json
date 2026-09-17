@@ -1,0 +1,15 @@
+{
+  "dataset": "AI4Shipwrecks",
+  "label_conversion": "union mask pixels per tile converted to one YOLO shipwreck box",
+  "tile_size": 1024,
+  "tile_overlap": 0.25,
+  "training_image_size": 512,
+  "epochs_requested": 12,
+  "epochs_completed": 12,
+  "batch": 4,
+  "device": "cpu",
+  "learning_rate": 0.0005,
+  "freeze": 10,
+  "checkpoint": "models/yolo_shipwreck_ai4shipwrecks.pt",
+  "test_metrics": "reports/ai4shipwrecks_test_metrics.json"
+}
