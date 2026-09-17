@@ -1,0 +1,8 @@
+{
+  "best_epoch": 3,
+  "auroc": 1.0,
+  "val_normal_mse": 0.005338932387530804,
+  "val_object_mse": 0.06316632777452469,
+  "train_patches": 255,
+  "val_patches": 45
+}
