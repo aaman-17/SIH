@@ -41,7 +41,8 @@ st.set_page_config(page_title="ABYSSALSCAN", layout="wide", initial_sidebar_stat
 MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models")
 YOLO_WEIGHTS = os.path.join(MODEL_DIR, "yolo_sonar_best.pt")
 SHIPWRECK_WEIGHTS = os.path.join(MODEL_DIR, "yolo_shipwreck_ai4shipwrecks.pt")
-AE_WEIGHTS = os.path.join(MODEL_DIR, "autoencoder.pt")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+AE_WEIGHTS = os.path.join(BASE_DIR, "models", "autoencoder.pt")
 DEMO_IMG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "demo_sonar.png")
 
 CLASS_COLORS = {
