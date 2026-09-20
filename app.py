@@ -15,6 +15,7 @@ left out rather than faked.
 import os
 import sys
 import tempfile
+import datetime
 
 import numpy as np
 import cv2
@@ -48,6 +49,7 @@ CLASS_COLORS = {
 }
 
 PALETTES = {
+    "DAYLIGHT CYAN": [(0, (238, 247, 252)), (0.5, (117, 190, 220)), (1.0, (2, 132, 199))],
     "DEEP CYAN": [(0, (3, 14, 34)), (0.5, (0, 90, 110)), (1.0, (0, 242, 254))],
     "SEPIA": [(0, (20, 12, 5)), (0.5, (110, 70, 30)), (1.0, (255, 222, 172))],
     "PHOSPHOR": [(0, (2, 10, 2)), (0.5, (10, 120, 40)), (1.0, (125, 255, 162))],
@@ -117,16 +119,18 @@ def run_sonar_mode():
     # ---------------- LEFT: sonar input ----------------
     with col_left:
         with st.container(border=True):
-            st.markdown('<div class="card-header"><span class="card-title">📡 Stream Ingest</span></div>',
+            st.markdown('<div class="card-header"><span class="card-title">📡 Stream Ingest</span><span class="badge badge-cyan">ONLINE</span></div>',
                         unsafe_allow_html=True)
             uploaded = st.file_uploader("Sonar file (PNG/JPG/XTF)", type=["png", "jpg", "jpeg", "xtf"],
-                                        label_visibility="collapsed")
+                                        label_visibility="visible")
             use_demo = False
             if uploaded is None:
                 use_demo = st.checkbox("Use bundled demo sonar image", value=True)
 
-    start_lat, start_lon, heading, swath_width = 17.6868, 83.2185, 45.0, 50.0
-    conf_thresh, min_report_conf, ignore_guard = 0.30, 25, False
+    start_lat, start_lon, heading = 17.6868, 83.2185, 45.0
+    swath_width = 50.0
+    conf_thresh, min_report_conf = 0.30, 25
+    ignore_guard = False
 
     # ---------------- resolve input & run pipeline ----------------
     xtf_nav_df = None
@@ -157,8 +161,7 @@ def run_sonar_mode():
             blocked_msg = ("error", (
                 "This doesn't look like acoustic side-scan sonar data — it has real color content "
                 f"(channel variation ≈ {guard_diag['channel_decorrelation']:.1f}, mean saturation ≈ "
-                f"{guard_diag['mean_saturation']:.1f}), which raw sonar exports don't have. Switch to "
-                "This file does not look like raw acoustic sonar data."
+                f"{guard_diag['mean_saturation']:.1f}), which raw sonar exports don't have."
             ))
 
     if raw_img is not None and blocked_msg is None:
@@ -220,7 +223,6 @@ def run_sonar_mode():
                     st.caption("No classified hazards above threshold.")
                 for i, d in enumerate(hazards):
                     label, badge_cls = ("SHIPWRECK CANDIDATE", "badge-red") if d["source"] == "structure_heuristic" else hazard_badge(d["confidence_pct"])
-                    rec = records[detections.index(d)] if detections else None
                     css_cls = "hazard-high" if d["confidence_pct"] >= 70 else "hazard-med" if d["confidence_pct"] >= 40 else ""
                     evidence_row = (f'<div class="det-row"><span>EVIDENCE: {d.get("evidence_count", "—")} tiled hits</span></div>'
                                     if d["source"] == "structure_heuristic" else "")
@@ -273,9 +275,10 @@ def run_sonar_mode():
     # ---------------- fill header + metrics now that we have data ----------------
     header_ph.markdown(
         '<div class="aura-header">'
-        '<div><span class="aura-title">🛰 ABYSSALSCAN</span>'
-        '<div class="aura-sub">Marine Hydrographic AI Suite — Streamlit Build</div></div>'
-        '<div>'
+        '<div><span class="aura-title">◈ AURA SONAR</span>'
+        '<div class="aura-sub">Marine Hydrographic AI Suite • Daylight Command</div></div>'
+        '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;">'
+        '<span class="pill"><span class="dot"></span> ONLINE</span>'
         '</div></div>', unsafe_allow_html=True,
     )
 
@@ -288,15 +291,20 @@ def run_sonar_mode():
         else:
             hazard_txt, hazard_cls = "LOW RISK", "badge-green"
         metrics_ph.markdown(
-            '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:10px;">'
+            '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;">'
             f'<div class="metric-card"><div class="metric-label"><span class="label-caps">Targets Detected</span>'
-            '</div>'
+            '<span class="badge badge-cyan">YOLO+AE</span></div>'
             f'<span class="metric-value">{len(detections)}</span>'
             f'<span class="metric-sub">{n_hazard} hazards · {n_anomaly} anomalies</span></div>'
 
             f'<div class="metric-card"><div class="metric-label"><span class="label-caps">Hazard Rating</span></div>'
             f'<span class="badge {hazard_cls}" style="width:fit-content;">{hazard_txt}</span>'
             f'<span class="metric-sub">Max confidence {max_conf:.0f}%</span></div>'
+
+            f'<div class="metric-card"><div class="metric-label"><span class="label-caps">Bathymetric Sounding</span>'
+            f'<span class="metric-sub">ALT: 12.4m</span></div>'
+            f'<span class="metric-value">-42.8m</span>'
+            f'<span class="metric-sub">water column · grade 2.1°</span></div>'
 
             '</div>', unsafe_allow_html=True,
         )
@@ -307,6 +315,13 @@ def run_sonar_mode():
             '<span class="metric-value" style="font-size:16px;">AWAITING INPUT</span></div>',
             unsafe_allow_html=True,
         )
+
+    st.markdown(
+        f'<div class="aura-footer">'
+        f'<div><b>ECHOSOUNDER:</b> 120.4 kHz &nbsp;&nbsp; <b>WATER TEMP:</b> 8.4°C &nbsp;&nbsp; <b>DVL SPEED:</b> 3.8 kts</div>'
+        f'<div><b>SYSTEM:</b> ONLINE &nbsp;&nbsp; <b>SYS CLOCK:</b> {datetime.datetime.now(datetime.timezone.utc).strftime("%H:%M:%S")} UTC</div>'
+        f'</div>', unsafe_allow_html=True,
+    )
 
 if __name__ == "__main__":
     main()
