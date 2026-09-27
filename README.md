@@ -22,7 +22,7 @@ Side-Scan Sonar (.xtf / image) --> pyxtf ingestion --> OpenCV+CLAHE preprocessin
 | CNN Autoencoder anomaly scorer | `src/autoencoder.py`, `models/autoencoder.pt` | **Trained until-best**; normal-vs-anomaly separation AUROC = **1.00** |
 | Confidence fusion + noise filtering | `src/detection_pipeline.py` | Implemented (edge-density / aspect-ratio heuristics) |
 | Geotagging + JSON/CSV report engine | `src/geotagging.py` | Implemented |
-| Streamlit + Folium dashboard | `app.py` | Implemented — **AbyssalScan tactical HUD theme** (see below) |
+| Streamlit + Folium dashboard | `app.py` | Implemented — **Abyssal Scan tactical HUD theme** (see below) |
 | Sonar-vs-photo input guard | `src/sonar_guard.py` | Implemented — blocks non-sonar images before running sonar models |
 | Optical (camera photo) triage mode | `src/optical_detector.py` | Implemented — separate, honestly-scoped pipeline (see note below) |
 

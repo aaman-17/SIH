@@ -1,9 +1,9 @@
 """
- AbyssalScan - Hydrographic Tactical Bridge (Streamlit implementation)
+ Abyssal Scan - Hydrographic Tactical Bridge (Streamlit implementation)
 =======================================================================
 Run with:  streamlit run app.py
 
-Dark tactical-HUD dashboard styled after the AbyssalScan mockup, wired to
+Dark tactical-HUD dashboard styled after the Abyssal Scan mockup, wired to
 the REAL detection pipeline (preprocess -> YOLO11n -> autoencoder ->
 noise filtering -> geotagging). Where the original mockup showed
 placeholder/demo numbers (live FPS ticking on a video feed, fake sensor
@@ -30,7 +30,7 @@ from src.autoencoder import load_autoencoder
 from src.sonar_guard import looks_like_sonar
 from src import aura_theme
 
-st.set_page_config(page_title="ABYSSALSCAN", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="ABYSSAL SCAN", layout="wide", initial_sidebar_state="collapsed")
 
 MODEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "models")
 YOLO_WEIGHTS = os.path.join(MODEL_DIR, "yolo_sonar_best.pt")
@@ -275,7 +275,7 @@ def run_sonar_mode():
     # ---------------- fill header + metrics now that we have data ----------------
     header_ph.markdown(
         '<div class="aura-header">'
-        '<div><span class="aura-title">◈ AURA SONAR</span>'
+        '<div><span class="aura-title">◈ ABYSSAL SCAN</span>'
         '<div class="aura-sub">Marine Hydrographic AI Suite • Daylight Command</div></div>'
         '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end;">'
         '<span class="pill"><span class="dot"></span> ONLINE</span>'

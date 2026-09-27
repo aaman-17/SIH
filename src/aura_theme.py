@@ -1,7 +1,7 @@
 """
-AbyssalScan HUD Theme
+Abyssal Scan HUD Theme
 ======================
-Design tokens lifted from the provided AbyssalScan mockup (dark tactical
+Design tokens lifted from the provided Abyssal Scan mockup (dark tactical
 hydrographic bridge aesthetic: deep navy background, cyan/mint accents,
 JetBrains Mono for telemetry, Inter for headlines). This module returns one
 big CSS string injected once via st.markdown(unsafe_allow_html=True) to
